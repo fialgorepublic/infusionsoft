@@ -3,7 +3,7 @@ class GetContactService
   require 'faraday'
   require 'uri'
   CLIENT_ID = "zj4a8rq2auuc66zyu2npefdt"
-  CLIENTsECRET = "Pf4Q3yxMRy"
+  CLIENT_SECRET = "Pf4Q3yxMRy"
 
   def initialize(contact_id)
     @base_url = "https://api.infusionsoft.com/crm/rest/v1/contacts"
