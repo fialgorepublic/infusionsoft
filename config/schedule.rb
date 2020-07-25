@@ -20,6 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 
-every 2.minutes do
+every 22.hours do
   rake "token:update_access_token", :output => {:error => 'task_reminder_error.log', :standard => 'task_reminder.log'}
 end
