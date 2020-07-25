@@ -40,6 +40,7 @@ gem 'httparty'
 gem 'xmlrpc'
 gem 'infusionsoft'
 gem 'savon', '~> 2.12.0'
+gem 'whenever', require: false
 
 
 group :development, :test do
