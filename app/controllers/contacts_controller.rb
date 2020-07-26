@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
          Surname:      last_name,
          EmailAddress: email,
          TelephoneNumber: phone_number,
+         PostCode:        postal_code,
          dataSource:          "Final Choices",
          contact: {
           ContactID: @contact["id"]

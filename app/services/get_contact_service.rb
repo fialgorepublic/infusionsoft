@@ -14,7 +14,5 @@ class GetContactService
   def check_status
     response = HTTParty.get("#{base_url}/#{contact_id}?access_token=#{Token.first.access_token}")
     [response, response.code] 
-  end
-
-    
+  end    
 end
