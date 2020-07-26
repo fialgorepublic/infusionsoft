@@ -1,8 +1,8 @@
 desc 'Add Contacts'
 task add_token: :environment do
-  response = HTTParty.get("https://api.infusionsoft.com/crm/rest/v1/contacts/?access_token=#{Token.first.access_token}")
+  #response = HTTParty.get("https://api.infusionsoft.com/crm/rest/v1/contacts/?access_token=#{Token.first.access_token}")
   response = HTTParty.get("https://api.infusionsoft.com/crm/rest/v1/contacts/?access_token=YATkHRdu27XfA0xKQDX5fGEFsXHn")
-  response["contacts"].last(3).each do |contact|
+  response["contacts"].each do |contact|
     first_name = contact["given_name"]
     last_name = contact["family_name"]
     email = contact["email_addresses"][0]["email"] if contact["email_addresses"].any?
@@ -26,13 +26,13 @@ task add_token: :environment do
        PostCode:        postal_code,
        dataSource:          "Final Choices",
        contact: {
-        ContactID: @contact["id"]
+        ContactID: contact["id"]
        }
     }
     response = client.call(
       :add_contact,
       message: data,
     )
-    Rails.logger.info "========================================================================= Response: #{response.body}"
+    puts "========================================================================= Response: #{response.body}"
   end
 end
