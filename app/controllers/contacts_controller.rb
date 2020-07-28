@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact, @success = GetContactService.new(params[:object_keys][0][:id]).check_status
+    Rails.logger.info "======================@contact: #{@contact}===============================@success: #{@success}"
     if @success == 200
       first_name = @contact["given_name"]
       last_name = @contact["family_name"]
