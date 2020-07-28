@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
 
       data = {
           secKey: "616FFBF7-8398-431D-A234-BB56BE49DF9B",
-          destKey: "3FFB2ED4-0CEB-4F49-B3BB-85E3F7CBD265"
+          destKey: "3FFB2ED4-0CEB-4F49-B3BB-85E3F7CBD265",
           contact: {
             ContactID: @contact["id"],
             FirstName:    first_name,
