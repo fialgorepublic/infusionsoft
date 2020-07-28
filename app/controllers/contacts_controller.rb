@@ -18,16 +18,16 @@ class ContactsController < ApplicationController
       )
 
       data = {
-         secKey: "616FFBF7-8398-431D-A234-BB56BE49DF9B",
-         destKey: "3FFB2ED4-0CEB-4F49-B3BB-85E3F7CBD265", 
-         FirstName:    first_name,
-         Surname:      last_name,
-         EmailAddress: email,
-         TelephoneNumber: phone_number,
-         PostCode:        postal_code,
-         dataSource:          "Final Choices",
-         contact: {
-          ContactID: @contact["id"]
+          secKey: "616FFBF7-8398-431D-A234-BB56BE49DF9B",
+          destKey: "3FFB2ED4-0CEB-4F49-B3BB-85E3F7CBD265"
+          contact: {
+            ContactID: @contact["id"],
+            FirstName:    first_name,
+            Surname:      last_name,
+            EmailAddress: email,
+            TelephoneNumber: phone_number,
+            PostCode:        postal_code,
+            dataSource:          "Final Choices"
          }
       }
       response = client.call(
