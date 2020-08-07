@@ -4,11 +4,11 @@ class ContactsController < ApplicationController
     @contact, @success = GetContactService.new(params[:object_keys][0][:id]).check_status
     Rails.logger.info "======================@contact: #{@contact}===============================@success: #{@success}"
     if @success == 200
-      first_name = @contact["given_name"]
-      last_name = @contact["family_name"]
-      email = @contact["email_addresses"][0]["email"]
-      postal_code = @contact["addresses"][0]["postal_code"]
-      phone_number = @contact["phone_numbers"][0]["number"]
+      first_name = @contact["given_name"] if @contact["given_name"].present?
+      last_name = @contact["family_name"] if @contact["family_name"].present?
+      email = @contact["email_addresses"][0]["email"] if @contact["email_addresses"].any?
+      postal_code = @contact["addresses"][0]["postal_code"] if @contact["addresses"].any? 
+      phone_number = @contact["phone_numbers"][0]["number"] if @contact["phone_numbers"].any?
       Rails.logger.info "===================================================First Name: #{first_name}=======Last Name: #{last_name}===========Email: #{email}=========Postal Code: #{postal_code}================Phone Number: #{phone_number}"
       
       client = Savon.client(
