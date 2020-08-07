@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
           contact: {
             contactID: @contact["id"],
             firstName:    first_name,
-            surName:      last_name,
+            surname:      last_name,
             emailAddress: email,
             telephoneNumber: phone_number,
             postCode:        postal_code
