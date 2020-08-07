@@ -23,26 +23,18 @@ class ContactsController < ApplicationController
           destKey: "3FFB2ED4-0CEB-4F49-B3BB-85E3F7CBD265",
           dataSource:          "Final Choices",
           contact: {
-            contactID: @contact["id"],
-            firstName:    first_name,
-            surname:      last_name,
-            emailAddress: email,
-            telephoneNumber: phone_number,
-            postCode:        postal_code
+            ContactID: @contact["id"],
+            FirstName:    first_name,
+            Surname:      last_name,
+            EmailAddress: email,
+            TelephoneNumber: phone_number,
+            PostCode:        postal_code
          }
       }
       response = client.call(
         :add_contact,
         message: data,
       )
-
-      Rails.logger.info "========================================================================= Response: #{response}"
-      Rails.logger.info "========================================================================= =========================================================================="
-      Rails.logger.info "========================================================================= =========================================================================="
-      Rails.logger.info "========================================================================= =========================================================================="
-      Rails.logger.info "========================================================================= =========================================================================="
-      Rails.logger.info "========================================================================= =========================================================================="
-      Rails.logger.info "========================================================================= =========================================================================="
       Rails.logger.info "========================================================================= Response: #{response.body}"
     end
     # response.set_header("X-Hook-Secret", request.env["HTTP_X_HOOK_SECRET"]) if request.env["HTTP_X_HOOK_SECRET"].present?
